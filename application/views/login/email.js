@@ -60,7 +60,7 @@ function emailFunction() {
             }]
 		});
 
-		emailcrudWindow = Ext.create('Ext.window.Window', {
+	emailcrudWindow = Ext.create('Ext.window.Window', {
 		title		: 'Account Help',
 		closable	: true,
 		modal		: true,

@@ -27,7 +27,6 @@ function ViewRecord() {
             var htmlData =
                 '<table width="100%" style="background: #ff6666;border: solid 1px white;">' +
                     '<tr style="background: #ff6666;">';
-
             htmlData +=                    
                 '</tr><tr >' +
                 '<td valign="top" align="right" style="background: #ffbec2; padding: 2px;" width="20%"><font color=black size=2>Control #</td>' +
@@ -48,12 +47,9 @@ function ViewRecord() {
                 '<td valign="top" align="right" style="background: #ffbec2; padding: 2px;"><font color=black size=2>For/To</td>' +
                 '<td valign="top" align="left" style="background: #ffd9d9; padding: 2px;"><font color=black size=2>'+response.header_details[0].to_name+'</td>' +
                 '</tr>';
-
             htmlData += '</table>';
-
             htmlData +=
                 '<table width="100%" style="background: #5aa865;border: solid 1px white;">';
-
             htmlData += '<tr style="background: #5aa865;"></tr><td colspan="7" align="center" style="padding: 2px;" width="100%"><font color=white size=2><b>Filed Copy Details</b></font></td></tr>';
             htmlData += '<tr >' +
                         '<td valign="top" align="center" style="background: #c1e1c6; padding: 2px;" width="5%"><font color=black size=2><b>No.</b></td>' +
@@ -69,10 +65,8 @@ function ViewRecord() {
             };
 
             htmlData += '</table>';
-            
             var htmlTrackingData =
                 '<table width="100%" style="background: #ff6666;border: solid 1px white;">';
-
             htmlTrackingData += '<tr style="background: #ff6666;"></tr><td colspan="7" align="center" style="padding: 2px;" width="100%"><font color=white size=2><b>Tracking Details</b></font></td></tr>';
             htmlTrackingData +=                    
                 '</tr><tr >' +
@@ -102,9 +96,7 @@ function ViewRecord() {
                 '<td valign="top" align="right" style="background: #ffbec2; padding: 2px;"><font color=black size=2>Days from Action Taken</td>' +
                 '<td valign="top" align="left" style="background: #ffd9d9; padding: 2px;"><font color=black size=2>'+response.tracking_details[0].duration_action_taken+'</td>' +
                 '</tr>';
-
             htmlTrackingData += '</table>';
-
             var htmlLoad = new Ext.XTemplate(htmlData);
             var htmlApprovers = new Ext.XTemplate(htmlTrackingData);
               
@@ -113,28 +105,7 @@ function ViewRecord() {
                 autoScroll : true,
                 buttonAlign : 'center',
                 html    : htmlLoad.applyTemplate(null),
-                buttons: [
-                // {
-                //     text: 'Download',
-                //     tooltip: 'Extract Data to PDF or EXCEL File Format',
-                //     icon: '../image/download.png',
-                //     menu: {
-                //         items: [{
-                //             text    : 'Export PDF Format',
-                //             icon: '../image/pdf.png',
-                //             handler: function() {
-                //                 ExportForm('PDF');
-                //             }
-                //         },{
-                //             text    : 'Export Excel Format',
-                //             icon: '../image/excel.png',
-                //             handler: function() {
-                //                 ExportForm('Excel');
-                //             }
-                //         }]
-                //     }
-                // },
-                {
+                buttons: [{
                     text    : 'Close',
                     icon    : '../image/close.png',
                     handler: function() {

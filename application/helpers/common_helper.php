@@ -131,11 +131,6 @@ date_default_timezone_set('Asia/Manila');
 	        metadata.tdAttr = 'data-qtip="' + value + '"';
 	        return value;
 	    }
-
-	    // reload the page when browser size is changed, reimplement with mobile devices
-	    // Ext.EventManager.onWindowResize(function() {
-	    //     window.location.reload()
-	    // });
 	</script>
 
 	<!-- CRUD -->
@@ -463,39 +458,33 @@ date_default_timezone_set('Asia/Manila');
 		function divisionRenderer(value) {
 			var div_string = "";
 			if(value.includes(1)) {
-				//console.log(value, value.includes(1));
 				div_string = div_string + ('AD' + '<br>');
 			}
 
 			if(value.includes(2)) {
-				//console.log(value, value.includes(1));
 				div_string = div_string +('UDP'+ '<br>');
 			}
 
 			if(value.includes(6)) {
-				//console.log(value, value.includes(1));
 				div_string = div_string +('HCD'+ '<br>');
 			}
 
 			if(value.includes(4)) {
-				//console.log(value, value.includes(1));
 				div_string = div_string +('LHE'+ '<br>');
 			}
-			//console.log ('is this entering', value, div_string);
+
 	    	return '<div style="background-color:#34bb50 !important;"><font color=white><b>' + div_string + '</b></font></div>';
 	    }
 
 		function weekRenderer(value, meta) {
 			//value[1] is count of daily logs
 			if(value[0] == '' && value[1]!=0) {
-				//console.log (value)
 				//meta.style = "background-color:pink; color:pink "	
 				//metaData.attr = 'style="background-color:pink;"';
 				meta.style = "background-color:pink; color:black "	
 				return value[1];
 			}
 			else if(value[0] != '' && value[1]==0) {
-				//console.log (value)
 				//meta.style = "background-color:pink; color:pink "	
 				//metaData.attr = 'style="background-color:pink;"';
 				return value[0];
@@ -507,7 +496,6 @@ date_default_timezone_set('Asia/Manila');
 		}
 
 		function sendSMS4(toWhom, txtMessage, senderModule) {
-			//console.log (toWhom, txtMessage, senderModule)
 			Ext.Ajax.request({
 				url: "commonquery/text_blast",
 				method: 'POST',

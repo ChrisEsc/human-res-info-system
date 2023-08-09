@@ -2,7 +2,6 @@ function updateVacancyStatus(id, is_vacant) {
 	params 				= new Object();
 	params.id 			= id;
 	params.is_vacant	= is_vacant;
-
 	deleteFunction('cat_vacancies_masterlist/update_vacancy_status', params, 'list_grid', null);
 }
 

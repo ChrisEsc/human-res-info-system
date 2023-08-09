@@ -37,7 +37,6 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 			warningFunction("Warning!","Please select record.");
 			return;
 		}
-
 		detailID = sm.selected.items[0].data.id;
 	}
 	else if(crudType == "Add") 	detailID = 0;
@@ -82,7 +81,6 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 						triggerAction: 'all',
 						editable	: false,
 						store	: new Ext.data.ArrayStore({
-							// bind to database table soon
 							fields: ['id', 'description'],
 							data: [[1, 'Elementary'], [2, 'Secondary'], [3, 'Vocational/Trade Course'], [4, 'College'], [5, 'Graduate Studies']]
 						}),
@@ -96,15 +94,14 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 			                	educ_level_id = record[0].data.id;
 			                }
 			            },
-			            // value 		: 'College',
 						valueField 	: 'id',
 						displayField: 'description'
-			        },{
+			        }, {
 			        	xtype	 	: 'textfield',	
 						id		 	: 'school',
 						name	 	: 'school',
 						fieldLabel 	: 'School',
-			        },{
+			        }, {
 			        	xtype	 	: 'textfield',	
 						id		 	: 'course',
 						name	 	: 'course',
@@ -129,23 +126,23 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 						id			: 'from_year',
 						name		: 'from_year',
 						fieldLabel	: 'From'
-			        },{
+			        }, {
 			        	xtype		: 'numberfield',	
 						id			: 'to_year',
 						name		: 'to_year',
 						fieldLabel	: 'To'
-			        },{
+			        }, {
 			        	xtype	 	: 'numberfield',	
 						id		 	: 'units_earned',
 						name	 	: 'units_earned',
 						fieldLabel 	: 'Units Earned',
 						emptyText 	: 'If not graduated'
-			        },{
+			        }, {
 			        	xtype		: 'numberfield',	
 						id			: 'year_grad',
 						name		: 'year_grad',
 						fieldLabel	: 'Year Grad.'
-			        },{
+			        }, {
 			        	xtype	 	: 'textfield',	
 						id		 	: 'acad_honor',
 						name	 	: 'acad_honor',
@@ -184,7 +181,7 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 			                }
 			            }	
 			        }]
-		        },{
+		        }, {
 		        	xtype 		: 'fieldset',
 		        	title 		: 'Additional',
 		        	fieldDefaults: {
@@ -196,7 +193,7 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 						id			: 'rating',
 						name		: 'rating',
 						fieldLabel	: 'Rating'
-			        },{
+			        }, {
 			        	xtype		: 'datefield',	
 						id			: 'exam_date',
 						name		: 'exam_date',
@@ -204,19 +201,19 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 						editable 	: false,
 						format 		: "M d, Y",
 						emptyText 	: 'Date of Examination/Conferement'
-			        },{
+			        }, {
 			        	xtype	 	: 'textfield',	
 						id		 	: 'exam_place',
 						name	 	: 'exam_place',
 						fieldLabel 	: 'Exam Place',
 						emptyText 	: 'Place of Examination/Conferement'
-			        },{
+			        }, {
 			        	xtype	 	: 'textfield',	
 						id		 	: 'license_no',
 						name	 	: 'license_no',
 						fieldLabel 	: 'License No.',
 						emptyText 	: 'If applicable'
-			        },{
+			        }, {
 			        	xtype		: 'datefield',	
 						id			: 'date_validity',
 						name		: 'date_validity',
@@ -255,7 +252,7 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 						emptyText 	: 'mm/dd/yyyy',
 						afterLabelTextTpl: null, // remove after initial import
 		        		allowBlank: true // remove after initial import
-			        },{
+			        }, {
 			        	xtype		: 'datefield',	
 						id			: 'to_date',
 						name		: 'to_date',
@@ -265,12 +262,12 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 						emptyText 	: 'Leave blank if until present date.',
 						afterLabelTextTpl: null,
 		        		allowBlank  : true
-			        },{
+			        }, {
 			        	xtype	 	: 'textfield',	
 						id		 	: 'position',
 						name	 	: 'position',
 						fieldLabel 	: 'Position Title',
-			        },{
+			        }, {
 			        	xtype	 	: 'textfield',	
 						id		 	: 'agency_company',
 						name	 	: 'agency_company',
@@ -284,7 +281,7 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 			                }
 			            }
 			        }]
-		        },{
+		        }, {
 		        	xtype 		: 'fieldset',
 		        	title 		: 'Additional',
 		        	fieldDefaults: {
@@ -296,13 +293,13 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 						id			: 'monthly_salary',
 						name		: 'monthly_salary',
 						fieldLabel	: 'Monthly Salary'
-		        	},{
+		        	}, {
 		        		xtype		: 'numberfield',	
 						id			: 'salary_grade',
 						name		: 'salary_grade',
 						fieldLabel	: 'Salary Grade',
 						emptyText 	: 'Salary/Job/Pay Grade (if applicable, “00-0” format)'
-		        	},{
+		        	}, {
 		        		xtype   		: 'combo',
 			            id				: 'employment_status',
 			            name 			: 'employment_status',
@@ -333,7 +330,7 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 			                	employment_status_id = record[0].data.id;
 			                }
 			            }
-		        	},{
+		        	}, {
 		        		xtype: 'fieldcontainer',
 		        		fieldLabel: 'Gov. Service?',
 		        		defaultType: 'checkboxfield',
@@ -370,7 +367,7 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 						id		 	: 'title',
 						name	 	: 'title',
 						fieldLabel 	: 'Title',
-			        },{
+			        }, {
 			        	xtype	 	: 'numberfield',	
 						id		 	: 'duration',
 						name	 	: 'duration',
@@ -384,7 +381,7 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 			                }
 			            }
 			        }]
-		        },{
+		        }, {
 		        	xtype 		: 'fieldset',
 		        	title 		: 'Additional',
 		        	fieldDefaults: {
@@ -399,7 +396,7 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 						editable 	: false,
 						format 		: "M d, Y",
 						emptyText 	: 'mm/dd/yyyy'
-			        },{
+			        }, {
 			        	xtype		: 'datefield',	
 						id			: 'to_date',
 						name		: 'to_date',
@@ -409,7 +406,7 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 						emptyText 	: 'mm/dd/yyyy',
 						afterLabelTextTpl: null,
 		        		allowBlank  : true
-			        },{
+			        }, {
 			        	xtype		:'combo',
 						id			: 'training_type',
 						name		: 'training_type',
@@ -432,7 +429,7 @@ function AddEditDeleteDetails(crudType, detailType, grid) {
 			            // value 		: 'College',
 						valueField 	: 'id',
 						displayField: 'description'
-			        },{
+			        }, {
 			        	xtype	 	: 'textfield',	
 						id		 	: 'conducted_by',
 						name	 	: 'conducted_by',

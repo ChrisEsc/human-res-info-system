@@ -23,7 +23,6 @@ function selectionLineupCRUD(type) {
 		params.item_codes 		 	= item_codes.toString();
 		params.item_descs 		 	= item_descs.toString();
 		params.item_desc_details 	= item_desc_details.toString();
-
 		addVacancyToLineupWindow.close();		
 	}
 	else if(type == "Delete") {
@@ -110,10 +109,9 @@ function AddEditDeleteSelectionLineup(type) {
 
 		var RefreshDepartmentsStore = function() {Ext.getCmp("departments_grid").getStore().reload({params:{start:0}, timeout: 300000});};
 	    var RefreshVacanciesStore = function() {Ext.getCmp("vacancies_grid").getStore().reload({params:{start:0 }, timeout: 300000});};
-
 	    var cellEditing = Ext.create('Ext.grid.plugin.CellEditing', {
 	        clicksToEdit: 1
-	    });    
+	    });
 
 	    var departmentsGrid = Ext.create('Ext.grid.Panel', {
 	    	id 		: 'departments_grid',
@@ -225,7 +223,6 @@ function AddEditDeleteSelectionLineup(type) {
 			    }
 			}]
 		});
-
 		addVacancyToLineupWindow.show();
 	}
 }
@@ -283,8 +280,6 @@ function SaveSelectionLineup() {
 	params.statuses_psb 		= statuses_psb.toString();
 	params.are_selected 		= are_selected.toString();
 	params.prev_values 			= prev_values.toString();
-
-	console.log(params.prev_values);
 
 	deleteFunction('cat_selection_lineup/crud', params, 'list_grid', null);
 	// Ext.getCmp("pageToolbar").moveFirst();

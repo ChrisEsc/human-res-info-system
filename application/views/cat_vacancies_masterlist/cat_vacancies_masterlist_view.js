@@ -113,28 +113,7 @@ function ViewRecord() {
                 autoScroll : true,
                 buttonAlign : 'center',
                 html    : htmlLoad.applyTemplate(null),
-                buttons: [
-                // {
-                //     text: 'Download',
-                //     tooltip: 'Extract Data to PDF or EXCEL File Format',
-                //     icon: '../image/download.png',
-                //     menu: {
-                //         items: [{
-                //             text    : 'Export PDF Format',
-                //             icon: '../image/pdf.png',
-                //             handler: function() {
-                //                 ExportForm('PDF');
-                //             }
-                //         },{
-                //             text    : 'Export Excel Format',
-                //             icon: '../image/excel.png',
-                //             handler: function() {
-                //                 ExportForm('Excel');
-                //             }
-                //         }]
-                //     }
-                // },
-                {
+                buttons: [{
                     text    : 'Close',
                     icon    : '../image/close.png',
                     handler: function() {

@@ -164,7 +164,6 @@
 // 				listeners: {
 // 	                select: function(combo, record, index) {
 // 	                	communication_number = record[0].data.number;
-// 	                	console.log(communication_number);
 // 	                }
 // 	            },
 // 				valueField 	: 'number',

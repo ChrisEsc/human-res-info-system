@@ -93,20 +93,6 @@ Ext.onReady(function(){
         })
     });
 	RefreshGridStore(); 
-
- //     var rowMenu = Ext.create('Ext.menu.Menu', {
- //        items: [{
- //            text: 'Mark Vacant/Not Vacant',
- //            icon: './image/edit.png',
- //            handler: function(){ UpdateVacancyStatus();}
- //        }
- //        // ,{
- //        //     text: 'View Record',
- //        //     icon: './image/view.png',
- //        //     handler: function(){ ViewRecord();}
- //        // }
- //        ]
- //    });
  
     Ext.create('Ext.panel.Panel', {
         title: '<?php echo mysqli_real_escape_string($this->db->conn_id, $module_name);?>',
@@ -131,9 +117,7 @@ Ext.onReady(function(){
                     }
                 }
             }
-        }, '-', 
-
-         {
+        }, '-', {
             xtype       : 'combo',
             width       : 150,
             id          : 'publication_status',
@@ -156,8 +140,7 @@ Ext.onReady(function(){
                 }
                 
             }
-        }, 
-        {
+        }, {
             xtype       : 'checkbox',
             boxLabel    : 'Show Non-Vacant Items',
             id          : 'show_all_items_checkbox',
@@ -171,27 +154,7 @@ Ext.onReady(function(){
                 }
             }
         }, 
-        // { 
-        //     xtype: 'button', 
-        //     id: 'clear', 
-        //     text: 'CLEAR', 
-        //     icon: './image/reload.png', 
-        //     tooltip: 'Clear all filters', 
-        //     handler: function (){ 
-        //         status = null;
-        //         Ext.getCmp("appointment_status").clearValue();
-        //         Ext.getCmp("publication_status").clearValue();
-        //         Ext.getCmp("searchId").setValue("");
-
-        //         Ext.getCmp("list_grid").getStore().proxy.extraParams["appointment_status"] = 5;
-        //         Ext.getCmp("list_grid").getStore().proxy.extraParams["publication_status"] = 5;
-        //         Ext.getCmp("list_grid").getStore().proxy.extraParams["show_all_items"] = 0;
-                
-        //         Ext.getCmp("pageToolbar").moveFirst();
-        //     }
-        // },
         { xtype: 'tbfill'},
-        // { xtype: 'button', id: 'viewRecord', text: 'VIEW RECORD', icon: './image/view.png', tooltip: 'View Record', handler: function(){ ViewRecord();}},
         {
             text: 'DOWNLOAD',
             tooltip: 'Download Data to Excel File Format',

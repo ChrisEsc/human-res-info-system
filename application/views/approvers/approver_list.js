@@ -84,8 +84,7 @@ Ext.onReady(function(){
             id      : 'searchId',
             emptyText: 'Search here...',
             width   : '60%',
-            listeners:
-            {
+            listeners: {
                 specialKey : function(field, e) {
                     if(e.getKey() == e.ENTER) {
                         Ext.getCmp("transactionsGrid").getStore().proxy.extraParams["query"] = Ext.getCmp("searchId").getValue();

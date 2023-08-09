@@ -119,7 +119,7 @@ Ext.onReady(function(){
         viewConfig: {
             listeners: {
                 itemdblclick: function() {
-                    // ViewRecord();
+
                 },
                 itemcontextmenu: function(view, record, item, index, e){
                     e.stopEvent();
@@ -133,7 +133,6 @@ Ext.onReady(function(){
             pageSize: 50,
             displayInfo: true,
             displayMsg: 'Displaying {0} - {1} of {2}',
-            // displayMsg: 'Displaying {2} records',
             emptyMsg: "No record/s to display"
         })
     });
@@ -144,13 +143,7 @@ Ext.onReady(function(){
             text: 'Mark Vacant/Not Vacant',
             icon: './image/edit.png',
             handler: function(){ UpdateVacancyStatus();}
-        }
-        // ,{
-        //     text: 'View Record',
-        //     icon: './image/view.png',
-        //     handler: function(){ ViewRecord();}
-        // }
-        ]
+        }]
     });
  
     Ext.create('Ext.panel.Panel', {
@@ -243,13 +236,12 @@ Ext.onReady(function(){
             }
         },
         { xtype: 'tbfill'},
-        // { xtype: 'button', id: 'viewRecord', text: 'VIEW RECORD', icon: './image/view.png', tooltip: 'View Record', handler: function(){ ViewRecord();}},
         {
             text: 'DOWNLOAD',
             tooltip: 'Download Data to Excel File Format',
             icon: './image/download.png',
             handler: function() {
-                // ExportDocs('Excel');
+
             }
         }]
     });

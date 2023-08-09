@@ -66,7 +66,6 @@ Ext.onReady(function(){
             id 	: 'group',
             ftype: 'grouping',
             groupHeaderTpl: [
-            	// "{name} (Item No: ",
 			    '{children:this.formatName}',
 			    {
 			        formatName: function(children) {
@@ -82,7 +81,6 @@ Ext.onReady(function(){
 			        	str += ") SG: ";
 			        	str += children[0].data.posgrade + " of ";
 			        	str += children[0].data.depcode;
-                        // str += " - CSC Latest Posting: " + children[0].data.latest_posting;
 			        	return str;
 			        }
 			    }
@@ -266,10 +264,10 @@ Ext.onReady(function(){
         viewConfig: {
             listeners: {
                 cellclick: function(cell, td, cellIndex, record, tr, rowIndex, e, eOpts) {
-                    // console.log("A cell is clicked!");
+
                 },
                 itemdblclick: function() {
-                    // ViewRecord();
+
                 },
                 itemcontextmenu: function(view, record, item, index, e){
                     e.stopEvent();
@@ -363,42 +361,14 @@ Ext.onReady(function(){
                     lineup_status = 1;
                     Ext.getCmp("list_grid").getStore().proxy.extraParams["lineup_status"] = 1;
                     RefreshGridStore();
-
-                    // continue here, create a function that disables cell editing when Completed tab is selected
-                    console.log(Ext.getCmp("list_grid"));
                     var plugin = Ext.getCmp("list_grid").getPlugin("cellEditing");
-                    console.log(plugin);
                 }
             }
         },
         { xtype: 'tbfill'},
         { xtype: 'button', id: 'save', disabled: true, text: 'SAVE', icon: './image/save.png', tooltip: 'Save', handler: function(){ SaveSelectionLineup();}},
         { xtype: 'button', id: 'addVacancy', text: 'ADD VACANCY', icon: './image/add.png', tooltip: 'Add Vacancy', handler: function(){ AddEditDeleteSelectionLineup('Add');}},
-        { xtype: 'button', id: 'deleteVacancy', text: 'DELETE VACANCY', icon: './image/delete.png', tooltip: 'Delete Vacancy', handler: function(){ AddEditDeleteSelectionLineup('Delete');}},
-        // { xtype: 'button', id: 'mergeItems', text: 'MERGE ITEMS', icon: './image/merge.png', tooltip: 'Add Vacancy', handler: function(){ MergeItems();}},
-        // { xtype: 'button', id: 'unmergeItems', text: 'UNMERGE ITEMS', icon: './image/unmerge.png', tooltip: 'Add Vacancy', handler: function(){ UnmergeItems();}},
-        // { xtype: 'button', id: 'generatePSBList', text: 'PSB List', icon: './image/details.png', tooltip: 'PSB List', handler: function(){ PSBList();}},
-        // { xtype: 'button', id: 'addApplicant', text: 'ADD APPLICANT', icon: './image/add.png', tooltip: 'Add Applicant', handler: function(){ AddEditDeleteApplicant('Add');}},
-        // {
-        //     text: 'Download',
-        //     tooltip: 'Extract Data to PDF or EXCEL File Format',
-        //     icon: './image/download.png',
-        //     menu: {
-        //         items: [{
-        //             text    : 'Export PDF Format',
-        //             icon: './image/pdf.png',
-        //             handler: function() {
-        //                 ExportDocs('PDF');
-        //             }
-        //         }, {
-        //             text    : 'Export Excel Format',
-        //             icon: './image/excel.png',
-        //             handler: function() {
-        //                 ExportDocs('Excel');
-        //             }
-        //         }]
-        //     }
-        // }
+        { xtype: 'button', id: 'deleteVacancy', text: 'DELETE VACANCY', icon: './image/delete.png', tooltip: 'Delete Vacancy', handler: function(){ AddEditDeleteSelectionLineup('Delete');}}
         ]
     });
 });

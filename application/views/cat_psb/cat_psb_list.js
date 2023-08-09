@@ -30,7 +30,7 @@ Ext.onReady(function(){
         },
         listeners: {
             load: function(store, records, successful, eOpts) {
-                console.log(store);
+                
             }
         },
         fields: [{name: 'lineup_vacancy_id', type: 'int'}, {name: 'lineup_header_id', type: 'int'}, {name: 'selected_lineup_applicant_id', type: 'int'}, 'item_details', 'plantilla_item_no', 'posgrade', 'depcode', 'latest_posting', 'selected_applicant_name', 'date_psb', 'remarks', 'is_locked'],
@@ -50,7 +50,6 @@ Ext.onReady(function(){
             id  : 'group',
             ftype: 'grouping',
             groupHeaderTpl: [
-                // "{name} (Item No: ",
                 '{children:this.formatName}',
                 {
                     formatName: function(children) {
@@ -66,7 +65,6 @@ Ext.onReady(function(){
                         str += ") SG: ";
                         str += children[0].data.posgrade + " of ";
                         str += children[0].data.depcode;
-                        // str += " - CSC Latest Posting: " + children[0].data.latest_posting;
                         return str;
                     }
                 }
@@ -86,7 +84,7 @@ Ext.onReady(function(){
         viewConfig: {
             listeners: {
                 itemdblclick: function() {
-                    // ViewRecord();
+
                 },
                 itemcontextmenu: function(view, record, item, index, e){
                     e.stopEvent();
@@ -94,15 +92,6 @@ Ext.onReady(function(){
                 }
             }
         }
-        // ,
-        // bbar: Ext.create('Ext.PagingToolbar', {
-        //     id: 'pageToolbar',
-        //     store: store,
-        //     pageSize: setLimit,
-        //     displayInfo: true,
-        //     displayMsg: 'Displaying {0} - {1} of {2}',
-        //     emptyMsg: "No record/s to display"
-        // })
     });
     RefreshGridStore(); 
 
@@ -112,14 +101,7 @@ Ext.onReady(function(){
             text: 'Update PSB',
             icon: './image/details.png',
             handler: function(){ UpdatePSB();}
-        }
-        // ,{
-        //     id: 'viewRow',
-        //     text: 'View PSB',
-        //     icon: './image/view.png',
-        //     handler: function(){}
-        // }
-        ]
+        }]
     });
 
     Ext.create('Ext.panel.Panel', {

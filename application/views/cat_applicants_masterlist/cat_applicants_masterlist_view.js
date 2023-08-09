@@ -18,16 +18,11 @@ function ViewRecord() {
             var htmlData =
                 '<table width="100%" style="background: #ff6666;border: solid 1px white;">' +
                     '<tr style="background: #ff6666;">';
-
             htmlData +=                    
                 '</tr><tr >' +
                 '<td valign="top" align="right" style="background: #ffbec2; padding: 2px;" width="20%"><font color=black size=2>Complete Name</td>' +
                 '<td valign="top" align="left" style="background: #ffd9d9; padding: 2px;" width="80%"><font color=black size=2>'+response.header_details[0].applicant_name+'</td>' +
                 '</tr>' +
-                // '<tr >' +
-                // '<td valign="top" align="right" style="background: #ffbec2; padding: 2px;"><font color=black size=2>Age</td>' +
-                // '<td valign="top" align="left" style="background: #ffd9d9; padding: 2px;"><font color=black size=2>'+response.header_details[0].age+'</td>' +
-                // '<tr >' +
                 '<td valign="top" align="right" style="background: #ffbec2; padding: 2px;"><font color=black size=2>Phone No.</td>' +
                 '<td valign="top" align="left" style="background: #ffd9d9; padding: 2px;"><font color=black size=2>'+response.header_details[0].phone_no+'</td>' +
                 '</tr>' +
@@ -35,12 +30,9 @@ function ViewRecord() {
                 '<td valign="top" align="right" style="background: #ffbec2; padding: 2px;"><font color=black size=2>Email Add.</td>' +
                 '<td valign="top" align="left" style="background: #ffd9d9; padding: 2px;"><font color=black size=2>'+response.header_details[0].email_add+'</td>' +
                 '</tr>';
-
             htmlData += '</table>';
-
             htmlData +=
                 '<table width="100%" style="background: #5aa865;border: solid 1px white;">';
-
             htmlData += '<tr style="background: #5aa865;"></tr><td colspan="8" align="center" style="padding: 2px;" width="100%"><font color=white size=2><b>Educational Background</b></font></td></tr>';
             htmlData += '<tr >' +
                         '<td rowspan="2" valign="center" align="left" style="background: #c1e1c6; padding: 2px;" width="7%"><font color=black size=2><b>Level</b></td>' +
@@ -69,10 +61,8 @@ function ViewRecord() {
             };
 
             htmlData += '</table>';
-
             htmlData +=
                 '<table width="100%" style="background: #5aa865;border: solid 1px white;">';
-
             htmlData += '<tr style="background: #5aa865;"></tr><td colspan="6" align="center" style="padding: 2px;" width="100%"><font color=white size=2><b>Civil Service Eligibility</b></font></td></tr>';
             htmlData += '<tr >' +
                         '<td rowspan="2" valign="center" align="left" style="background: #c1e1c6; padding: 2px;" width="30%"><font color=black size=2><b>Eligibility</b></td>' +
@@ -97,10 +87,8 @@ function ViewRecord() {
             };
 
             htmlData += '</table>';
-            
             htmlData +=
                 '<table width="100%" style="background: #5aa865;border: solid 1px white;">';
-
             htmlData += '<tr style="background: #5aa865;"></tr><td colspan="8" align="center" style="padding: 2px;" width="100%"><font color=white size=2><b>Work Experience</b></font></td></tr>';
             htmlData += '<tr >' +
                         '<td colspan="2" valign="center" align="center" style="background: #c1e1c6; padding: 2px;" width="20%"><font color=black size=2><b>Inclusive Dates</b></td>' +
@@ -129,10 +117,8 @@ function ViewRecord() {
             };
 
             htmlData += '</table>';
-
             htmlData +=
                 '<table width="100%" style="background: #5aa865;border: solid 1px white;">';
-
             htmlData += '<tr style="background: #5aa865;"></tr><td colspan="8" align="center" style="padding: 2px;" width="100%"><font color=white size=2><b>Learning and Development Interventions/Trainings</b></font></td></tr>';
             htmlData += '<tr >' +
                         '<td rowspan="2" valign="center" align="left" style="background: #c1e1c6; padding: 2px;" width="30%"><font color=black size=2><b>Title</b></td>' +
@@ -157,7 +143,6 @@ function ViewRecord() {
             };
 
             htmlData += '</table>';
-            
             var htmlLoad = new Ext.XTemplate(htmlData);
             var applicationsStore = new Ext.data.JsonStore({
                 storeId: 'applicationsStore',
@@ -217,28 +202,7 @@ function ViewRecord() {
                 autoScroll : true,
                 buttonAlign : 'center',
                 html    : htmlLoad.applyTemplate(null),
-                buttons: [
-                // {
-                //     text: 'Download',
-                //     tooltip: 'Extract Data to PDF or EXCEL File Format',
-                //     icon: '../image/download.png',
-                //     menu: {
-                //         items: [{
-                //             text    : 'Export PDF Format',
-                //             icon: '../image/pdf.png',
-                //             handler: function() {
-                //                 ExportForm('PDF');
-                //             }
-                //         },{
-                //             text    : 'Export Excel Format',
-                //             icon: '../image/excel.png',
-                //             handler: function() {
-                //                 ExportForm('Excel');
-                //             }
-                //         }]
-                //     }
-                // },
-                {
+                buttons: [{
                     text    : 'Close',
                     icon    : './image/close.png',
                     handler: function() {

@@ -85,7 +85,7 @@ function AddEditDeleteDefaultModules(type) {
 			}]
 		});
 
-			defaultmoduleWindow = Ext.create('Ext.window.Window', {
+		defaultmoduleWindow = Ext.create('Ext.window.Window', {
 			title		: type + ' Module',
 			closable	: true,
 			modal		: true,

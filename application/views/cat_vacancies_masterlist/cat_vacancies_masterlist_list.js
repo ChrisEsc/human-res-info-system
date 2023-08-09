@@ -96,13 +96,7 @@ Ext.onReady(function(){
             text: 'Mark Vacant/Not Vacant',
             icon: './image/edit.png',
             handler: function(){ UpdateVacancyStatus();}
-        }
-        // ,{
-        //     text: 'View Record',
-        //     icon: './image/view.png',
-        //     handler: function(){ ViewRecord();}
-        // }
-        ]
+        }]
     });
  
     Ext.create('Ext.panel.Panel', {

@@ -89,14 +89,14 @@ function AddEditDeleteDepartment(type) {
 		                	Ext.get('departments').dom.value = record[0].data.id;
 		                }
 		            }
-		        },{
+		        }, {
                     xtype: 'button',
                     hidden: crudMaintenance,
                     margins     : '0 0 0 5',
                     text: '...',
                     tooltip: 'Add/Edit/Delete Division',
                     handler: function(){ viewMaintenance('divisions', null); }
-                },{
+                }, {
 		        	xtype: 'button',
 		        	hidden: crudMaintenance,
 		        	margins		: '0 0 0 5',

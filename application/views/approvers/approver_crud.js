@@ -2,7 +2,6 @@ var approversWindow, approversID, approversForm, hierarchyID;
 
 function approverCRUD(type) {
 	var sm = Ext.getCmp("transactionsGrid").getSelectionModel();
-
 	params = new Object();
 	params.id	= approversID;
 	params.code	= sm.selected.items[0].data.code;

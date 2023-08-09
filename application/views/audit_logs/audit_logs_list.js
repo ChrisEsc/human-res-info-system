@@ -1,5 +1,4 @@
 setTimeout("UpdateSessionData();", 0);
-
 var query = null;
 
 function ExportGridList(type) {
@@ -9,7 +8,6 @@ function ExportGridList(type) {
     params.date_to  = Ext.getCmp("dateTo").getValue();
     params.query    = Ext.getCmp("searchId").getValue();  
     params.reporttype = 'List';
-    
     ExportDocument('audit_logs/exportdocument', params, type);
 }
 
@@ -55,12 +53,9 @@ Ext.onReady(function(){
         margin: '0 0 10 0',
         viewConfig: {
             listeners: {
-                // itemdblclick: function() {
-                //     ViewDetails();
-                // },
                 itemcontextmenu: function(view, record, item, index, e){
                     e.stopEvent();
-                    // rowMenu.showAt(e.getXY());
+
                 }
             }
         },
@@ -73,15 +68,6 @@ Ext.onReady(function(){
         })
     });
     RefreshGridStore(); 
-
-    // var rowMenu = Ext.create('Ext.menu.Menu', {
-    //     items: [
-    //     {
-    //         text: 'View Details',
-    //         icon: './image/view.png',
-    //         handler: function(){ ViewDetails();}
-    //     }]
-    // });
 
     Ext.create('Ext.panel.Panel', {
         title: '<?php echo mysqli_real_escape_string($this->db->conn_id, $module_name);?>',
