@@ -34,7 +34,6 @@ class Cat_Requirements_Tracking extends CI_Controller {
 
 			$user_id 				= $this->session->userdata('user_id');
 			$user_division_id 		= $this->session->userdata('division_id');
-
 			$limitQuery = "";
 			if($transaction_type == 'Grid') {
 				$limit = $_GET['limit'];
@@ -243,7 +242,6 @@ class Cat_Requirements_Tracking extends CI_Controller {
 
 			$data['totalCount'] = $query_count[0]->count;
 			return $data;
-
 		}
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -351,7 +349,6 @@ class Cat_Requirements_Tracking extends CI_Controller {
 			$data["accounts_count"] = count($query_result);
 			$data["history_count"] = count($tracking_result);
 			$data["attachments_count"] = count($attachments_result);
-
 			return $data;
 		}
 		catch(Exception $e) {
@@ -388,7 +385,6 @@ class Cat_Requirements_Tracking extends CI_Controller {
 			else {
 				if($type == "Add") {
 					$commandText = "SELECT * FROM adminservices_records_header WHERE active = 1 AND ((sequence_number LIKE '%$sequence_number%' AND YEAR(date_communication) = YEAR(CURDATE())) OR subject LIKE '%$subject%') AND communication_type = 'Incoming'";
-					//$commandText = "SELECT * FROM adminservices_records_header WHERE active = 1 AND (sequence_number LIKE '%$sequence_number%' OR subject LIKE '%$subject%') AND communication_type = 'Incoming'";
 					$result = $this->db->query($commandText);
 					$query_result = $result->result();
 
@@ -404,7 +400,6 @@ class Cat_Requirements_Tracking extends CI_Controller {
 					$status 			= mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($this->input->post('status'))));
 
 					$commandText = "SELECT * FROM adminservices_records_header WHERE id <> $id AND active = 1 AND ((sequence_number LIKE '%$sequence_number%' AND YEAR(date_communication) = YEAR(CURDATE())) OR subject LIKE '%$subject%')  AND communication_type = 'Incoming'";
-					//$commandText = "SELECT * FROM adminservices_records_header WHERE id <> $id AND active = 1 AND (sequence_number LIKE '%$sequence_number%' AND YEAR(date_communication) = '%date('Y', $date_communication)%') OR subject LIKE '%$subject%')  AND communication_type = 'Incoming'";
 					$result = $this->db->query($commandText);
 					$query_result = $result->result();
 
@@ -500,7 +495,6 @@ class Cat_Requirements_Tracking extends CI_Controller {
 			$record = array();
 
 			// $details = $this->callable_functions->CommunicationDetailsBuilder($value->record_type, $value->communication_number, $value->subject);
-
 			foreach($query_result as $key => $value) {	
 				// $control_number = $this->callable_functions->GenerateControlNumber($value->date_communication, $value->date_logged, $value->sequence_number);
 

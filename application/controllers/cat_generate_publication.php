@@ -56,7 +56,6 @@ class Cat_Generate_Publication extends CI_Controller {
 								IF(a.item_desc_detail IS NULL, '', a.item_desc_detail) AS item_desc_detail,
 								a.plantilla_item_no,
 								a.posgrade,
-#								IF(a.sal_rate IS NULL, '', a.sal_rate/12) AS sal_rate,
 								d.step_1,
 								a.occupant_desc,
 								IF(b.education IS NULL, '', b.education) AS education,
@@ -137,7 +136,6 @@ class Cat_Generate_Publication extends CI_Controller {
 					'item_desc_detail' 			=> $val->item_desc_detail,
 					'plantilla_item_no' 		=> $val->plantilla_item_no,
 					'posgrade' 					=> $val->posgrade,
-//					'sal_rate' 					=> $val->sal_rate,
 					'step_1'					=> $val->step_1,
 					'occupant_desc'				=> $val->occupant_desc,
 					'education' 				=> $val->education,
@@ -182,7 +180,6 @@ class Cat_Generate_Publication extends CI_Controller {
 								a.item_desc_detail,
 								a.plantilla_item_no,
 								a.posgrade,
-#   								a.sal_rate,
 								d.step_1,
    								a.occupant_desc,
     							b.education,
@@ -191,7 +188,6 @@ class Cat_Generate_Publication extends CI_Controller {
     							b.eligibility,
     							b.competency,
     							c.description
-
 							FROM vacancies a
 							LEFT JOIN vacancies_qs b ON b.plantilla_item_id = a.plantilla_item_id
 							LEFT JOIN departments c ON c.depcode = a.depcode
@@ -201,12 +197,11 @@ class Cat_Generate_Publication extends CI_Controller {
 			$query_result = $result->result();
 
 			foreach($query_result as $key => $val) {
-								$data['data'][] = array(
+				$data['data'][] = array(
 					'id' 						=> $val->id,
 					'item_desc_detail' 			=> $val->item_desc_detail,
 					'plantilla_item_no' 		=> $val->plantilla_item_no,
 					'posgrade' 					=> $val->posgrade,
-#					'sal_rate' 					=> $val->sal_rate,
 					'step_1'					=> $val->step_1,
 					'occupant_desc'				=> $val->occupant_desc,
 					'education' 				=> $val->education,

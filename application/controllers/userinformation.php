@@ -18,7 +18,6 @@ class Userinformation extends CI_Controller {
 	public function stafflist() { 
 		try {
 			$query 	= mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($_GET['query'])));
-
 			die(json_encode($this->generatestafflist($query, $_GET['status'], 'Grid')));
 		} 
 		catch(Exception $e) {
@@ -111,7 +110,7 @@ class Userinformation extends CI_Controller {
 			if(count($query_result) == 0 & $transaction_type == 'Report') {
 				$data = array("success"=> false, "data"=>'No records found!');
 				die(json_encode($data));
-			}	
+			}
 			if(count($query_result) == 0 & $transaction_type == 'Grid') {
 				$data["totalCount"] = 0;
 				$data["data"] 		= array();
@@ -128,7 +127,6 @@ class Userinformation extends CI_Controller {
 					$employment_status_abv = '(JO) ';
 
 				$position_desc = $employment_status_abv . $value->position_desc;
-				//echo $employment_status_abv;
 
 				$data['data'][] = array(
 					'id' 				=> $value->id,
@@ -148,7 +146,6 @@ class Userinformation extends CI_Controller {
 
 			$data['totalCount'] = $query_count[0]->count;
 			return $data;
-
 		} 
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -158,15 +155,6 @@ class Userinformation extends CI_Controller {
 
 	public function crud() {
 		try { 
-			// delete later
-			// $temp_key = substr(str_shuffle("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()"), 0, 8);
-			// $this->load->model('Cipher');
-			// $this->Cipher->secretpassphrase();			
-			// $encryptedtext = $this->Cipher->encrypt($temp_key);
-			// echo "Temp key: " . $temp_key;
-			// echo "<br>encrypted: " . $encryptedtext;
-			// die();
-
 			#update session
 			$this->load->model('Session');$this->Session->Validate();
 			
@@ -196,7 +184,6 @@ class Userinformation extends CI_Controller {
 			//$email			= strip_tags(trim($this->input->post('email')));
 			$status				= $this->input->post('status');
 			$type				= $this->input->post('type');
-			
 			$is_division_head 	= isset($is_division_head) ? $is_division_head : 0;
 			$is_section_head 	= isset($is_section_head) ? $is_section_head : 0;
 
@@ -248,7 +235,6 @@ class Userinformation extends CI_Controller {
 				// {
 				// 	$data = array("success"=> false, "data"=>'Email Address Already in Use!');
 				// 	die(json_encode($data));
-
 				// }
 
 				if(!$status) $status = 0;

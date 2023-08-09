@@ -17,19 +17,6 @@ class Login extends CI_Controller {
 	}
 
 	public function userauthentication() {
-		// if($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-		//     header('Access-Control-Allow-Origin: *');
-		//     header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
-		//     header('Access-Control-Allow-Headers: token, Content-Type');
-		//     header('Access-Control-Max-Age: 1728000');
-		//     header('Content-Length: 0');
-		//     header('Content-Type: text/plain');
-		//     die();
-		// }
-
-		// header('Access-Control-Allow-Origin: *');
-		// header('Content-Type: application/json');
-
 		try {
 			$user_name	= mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($this->input->post('user_name'))));
 			$password	= mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($this->input->post('password'))));
@@ -96,22 +83,14 @@ class Login extends CI_Controller {
 				'time' 					=> date('Y-m-d H:i:s')
 			);
 			$this->session->set_userdata($newdata);
-
 			$route = "thumbnailmenu";	 
-
 			$this->load->model('Logs'); $this->Logs->audit_logs(0, 'login', 'Login', 'Successfully Login!');
 		
-
 			$arr = array();  
 			$arr['success'] = true;
 			$arr['data'] = $route;
 			$arr['name'] = mb_strtoupper($query_result[0]->sname);
 			$arr['staffID'] = $query_result[0]->user_id;
-			// $arr['division_head'] = $query_result[0]->division_head;
-			// $arr['division_id'] = $query_result[0]->division_id;
-			// $arr['section_head'] = $query_result[0]->section_head;
-			// $arr['section_id'] = $query_result[0]->section_id;
-			// $arr['eSignature'] = $query_result[0]->eSignature;
 			die(json_encode($arr));
 		}
 		catch(Exception $e) {
