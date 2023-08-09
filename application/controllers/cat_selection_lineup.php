@@ -122,7 +122,6 @@ class Cat_Selection_Lineup extends CI_Controller {
 					'lineup_applicant_id' 		=> $value->lineup_applicant_id,
 					'applicant_id' 				=> $value->applicant_id,
 					'item_details' 				=> $value->item_details,
-					// 'item_code' 				=> $value->item_code,
 					'applicant_name' 			=> $value->applicant_name,
 					'phone_no' 					=> $value->phone_no,
 					'email_add' 				=> $value->email_add,
@@ -151,7 +150,6 @@ class Cat_Selection_Lineup extends CI_Controller {
 
 			$data['totalCount'] = $query_count[0]->count;
 			return $data;
-
 		}
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -159,122 +157,12 @@ class Cat_Selection_Lineup extends CI_Controller {
 		}
 	}
 
-	// public function view() {
-	// 	try {
-	// 		die(json_encode($this->generateview($this->input->post('id'))));
-	// 	}
-	// 	catch(Exception $e) {
-	// 		print $e->getMessage();
-	// 		die();
-	// 	}
-	// }
-
-	// public function generateview($id) {
-	// 	try {
-	// 		#update session
-	// 		$this->load->model('Session');$this->Session->Validate();
-	// 		$this->load->library('callable_functions');
-
-	// 		#header details
-	// 		$commandText = "SELECT 
-	// 							a.date_communication,
-	// 							a.date_logged,
-	// 							a.sequence_number,
-	// 							a.communication_number,
-	// 							a.subject,
-	// 							b.description AS record_type,
-	// 							c.description AS from_name,
-	// 							d.description AS to_name
-	// 						FROM adminservices_records_header a
-	// 							LEFT JOIN record_types b ON a.record_type_id = b.id
-	// 							LEFT JOIN adminservices_records_from_to c ON a.from_id = c.id
-	// 							LEFT JOIN adminservices_records_from_to d ON a.to_id = d.id
-	// 						WHERE a.id = $id AND a.active = 1 AND a.communication_type = 'Incoming'";
-	// 		$result = $this->db->query($commandText);
-	// 		$query_result = $result->result();
-
-	// 		foreach($query_result as $key => $val) {
-	// 			$control_number = $this->callable_functions->GenerateControlNumber($val->date_communication, $val->date_logged, $val->sequence_number);
-	// 			$details = $this->callable_functions->CommunicationDetailsBuilder($val->record_type, $val->communication_number, $val->subject);
-
-	// 			$data['header_details'][] = array(
-	// 				'control_number'		=> $control_number,
-	// 				'date_communication' 	=> date('m/d/Y', strtotime($val->date_communication)),
-	// 				'details' 				=> stripslashes($details),
-	// 				'from_name' 			=> $val->from_name,
-	// 				'to_name' 				=> $val->to_name
-	// 			);
-	// 		}
-
-	// 		#tracking details
-	// 		$commandText = "SELECT 
-	// 							a.date_logged,
-	// 							a.status,
-	// 							IF(b.description IS NULL, '', b.description) AS assigned_division_name,
-	// 							a.side_notes,
-	// 							IF(c.action_taken IS NULL, '', c.action_taken) AS action_taken,
-	// 							IF(c.date_action_taken IS NULL, '', DATE_FORMAT(c.date_action_taken, '%m/%d/%Y')) AS date_action_taken,
-	// 							IF((TIMESTAMPDIFF(DAY, a.date_logged, c.date_action_taken)) IS NULL, '', (TIMESTAMPDIFF(DAY, a.date_logged, c.date_action_taken))) AS duration_action_taken
-	// 						FROM adminservices_records_header a
-	// 							LEFT JOIN divisions b ON a.division_id = b.id
-	// 							LEFT JOIN adminservices_records_actions_taken c ON a.action_taken_id = c.id
-	// 						WHERE a.id = $id AND a.active = 1";
-	// 		$result = $this->db->query($commandText);
-	// 		$tracking_result = $result->result();
-
-	// 		foreach($tracking_result as $key => $val) {
-	// 			$data['tracking_details'][] = array(
-	// 				'date_logged'				=> date('m/d/Y - h:i A', strtotime($val->date_logged)),
-	// 				'status'					=> $val->status,
-	// 				'assigned_division_name'	=> $val->assigned_division_name,
-	// 				'side_notes'				=> mb_strtoupper($val->side_notes),
-	// 				'action_taken'				=> $val->action_taken,
-	// 				'action_taken_date'			=> $val->date_action_taken,
-	// 				'duration_action_taken'		=> $val->duration_action_taken
-	// 			);
-	// 		}
-
-	// 		#filed copy details
-	// 		$commandText = "SELECT * 
-	// 						FROM adminservices_records_attachments 
-	// 						WHERE record_id = $id 
-	// 							AND active = 1";
-	// 		$result = $this->db->query($commandText);
-	// 		$attachments_result = $result->result();
-
-	// 		foreach($attachments_result as $key => $val) {
-	// 			$attachment_full_name = $val->attachment_name.".".$val->attachment_extension;
-	// 			$attachment_path = '../documents/Incoming and Outgoing Communications/'.$attachment_full_name;
-
-	// 			$data['attachments'][] = array(
-	// 				'attachment_name' 		=> $val->attachment_name,
-	// 				'attachment_full_name' 	=> $attachment_full_name,
-	// 				'attachment_path'		=> $attachment_path,
-	// 				'date_uploaded'			=> $val->date_uploaded,
-	// 				'description'			=> $val->description
-	// 			);
-	// 		}
-
-	// 		$data["success"] = true;			
-	// 		$data["accounts_count"] = count($query_result);
-	// 		$data["history_count"] = count($tracking_result);
-	// 		$data["attachments_count"] = count($attachments_result);
-
-	// 		return $data;
-	// 	}
-	// 	catch(Exception $e) {
-	// 		print $e->getMessage();
-	// 		die();
-	// 	}
-	// }
-
 	public function crud() {
 		try {
 			#update session
 			$this->load->model('Session');$this->Session->Validate();
 
 			$type = $this->input->post('type');
-
 			$this->load->model('Access'); $this->Access->rights($this->modulename('link'), $type, null);
 
 			if($type == "Delete") {
@@ -442,9 +330,6 @@ class Cat_Selection_Lineup extends CI_Controller {
 						
 						$this->load->model('Logs'); $this->Logs->audit_logs($this->selection_lineup_applicants->id, 'selection_lineup_applicants', $type, $this->modulename('label'));
 
-						// echo $prev_values[$i];
-						// echo "space";
-
             			// log updates to history table
 						$this->load->model('selection_lineup_updates_history');
 						$this->selection_lineup_updates_history->selection_lineup_applicants_id  = $lineup_applicant_ids[$i];
@@ -452,7 +337,6 @@ class Cat_Selection_Lineup extends CI_Controller {
 						$this->selection_lineup_updates_history->prev_values   					= str_replace("-", ",", $prev_values[$i]);
 						$this->selection_lineup_updates_history->date_logged 					= date('Y-m-d H:i:s');
 						$this->selection_lineup_updates_history->save(0);
-
 						$i++;
 					}
 				}	
@@ -557,8 +441,6 @@ class Cat_Selection_Lineup extends CI_Controller {
 
 			$type = $this->input->post('type');
 			$id = $this->input->post('id'); // lineup_applicant_id
-
-
 			$this->load->model('Access'); $this->Access->rights($this->modulename('link'), $type, null);
 
 			if($type == "Delete") {

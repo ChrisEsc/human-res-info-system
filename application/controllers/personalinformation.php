@@ -63,7 +63,6 @@ class Personalinformation extends CI_Controller {
 			
 			$id = $this->session->userdata('id');
 			$user_id = $this->session->userdata('user_id');
-
 			$user_name	= strip_tags(trim($this->input->post('user_name')));
 			$currpass	= strip_tags(trim($this->input->post('current_password')));
 			$password	= strip_tags(trim($this->input->post('password')));

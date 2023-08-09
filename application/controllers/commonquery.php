@@ -27,7 +27,6 @@ class Commonquery extends CI_Controller {
 			$fname 			= mysqli_real_escape_string($this->db->conn_id, $this->input->post('new_fname'));
 			$mname 			= mysqli_real_escape_string($this->db->conn_id, $this->input->post('new_mname'));
 			$lname 			= mysqli_real_escape_string($this->db->conn_id, $this->input->post('new_lname'));
-
 			$type		= $this->input->post('type');
 			
 			$this->load->model('Access'); $this->Access->rights(null, $crudtype, 'Maintenance');
@@ -66,7 +65,6 @@ class Commonquery extends CI_Controller {
 					die(json_encode($data));
 				}
 
-				
 				if($type == 'departments') { $this->departments->depcode = $depcode; $this->departments->description = $description; $this->departments->save($id);}
 				else if($type == 'divisions') { $this->divisions->div_code = $div_code; $this->divisions->description = $description; $this->divisions->save($id);}
 				else if($type == 'sections') { $this->sections->description = $description; $this->sections->save($id); }
@@ -99,7 +97,6 @@ class Commonquery extends CI_Controller {
 			$type 		= $this->input->post('type');
 			$category 	= $this->input->post('category');
 			
-
 			$commandText = "SELECT * FROM $type WHERE id = $id";
 			$result = $this->db->query($commandText);
 			$query_result = $result->result(); 
@@ -108,10 +105,8 @@ class Commonquery extends CI_Controller {
 			foreach($query_result as $key => $value) {	
 				$record['id'] 			= $value->id;					
 				$record['description']	= $value->description;	
-
 				if($type == 'departments') 	$record['depcode']	= $value->depcode;
 				else if($type == 'divisions')	$record['div_code'] 	= $value->div_code;
-				
 			}
 
 			$data['data'] = $record;
@@ -128,7 +123,6 @@ class Commonquery extends CI_Controller {
 		try {
 			$query 	= mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($_GET['query'])));
 			$type 	= $_GET['type'];
-
 
 			$commandText = "SELECT * FROM $type WHERE description like '%$query%' order by description asc";
 			$result = $this->db->query($commandText);
@@ -147,7 +141,6 @@ class Commonquery extends CI_Controller {
 			$data['metaData']['fields'][] = array('name' => 'id', 'type' => 'int');
 			$data['metaData']['fields'][] = array('name' => 'description');			
 
-
 			foreach($query_result as $key => $value) {	
 				$data['data'][] = array(
 					'id' 			=> $value->id,
@@ -155,9 +148,7 @@ class Commonquery extends CI_Controller {
 			}
 
 			$data['count'] = count($query_result);
-			
 			die(json_encode($data));
-
 		} 
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -200,7 +191,6 @@ class Commonquery extends CI_Controller {
 		try {
 			$query = mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($_GET['query'])));
 			$type = $_GET['type'];
-			//$type =  ['type'];
 			$commandText = "SELECT * FROM $type WHERE description LIKE '%$query%' ORDER BY id asc";
 			$result = $this->db->query($commandText);
 			$query_result = $result->result(); 
@@ -288,7 +278,6 @@ class Commonquery extends CI_Controller {
 			}
 
 			die(json_encode($data));
-
 		}
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -299,7 +288,6 @@ class Commonquery extends CI_Controller {
 	public function combolist_staff() {
 		try {
 			//$query = mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($_GET['query'])));
-
 			$commandText = "SELECT id as staffID, CONCAT (fname, ' ', mname, ' ', lname) as staffName FROM chuddiadb.staff 
 							WHERE active = 1
 							ORDER BY staffName ASC";
@@ -324,7 +312,6 @@ class Commonquery extends CI_Controller {
 			}
 
 			die(json_encode($data));
-
 		}
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -357,7 +344,6 @@ class Commonquery extends CI_Controller {
 			}
 
 			die(json_encode($data));
-
 		}
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -368,7 +354,6 @@ class Commonquery extends CI_Controller {
 	public function combolist_activities2() {
 		try {
 			//$query = mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($_GET['query'])));
-
 			$commandText = "SELECT sectionactivityID, activity FROM staffmonitoring.sectionactivity WHERE createdAt > '2021-01-01 00:00:00' AND deletedAt IS null ORDER BY sectionactivityID ASC, section_id DESC";
 			$result = $this->db->query($commandText);
 			$query_result = $result->result(); 
@@ -391,7 +376,6 @@ class Commonquery extends CI_Controller {
 			}
 
 			die(json_encode($data));
-
 		}
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -402,7 +386,6 @@ class Commonquery extends CI_Controller {
 	public function combolist_sections() {
 		try {
 			//$query = mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($_GET['query'])));
-
 			$commandText = "SELECT * FROM sections ORDER BY division_id ASC";
 			$result = $this->db->query($commandText);
 			$query_result = $result->result(); 
@@ -427,8 +410,8 @@ class Commonquery extends CI_Controller {
 					'description' 	=> $value->description,
 					'code'			=> $value->code);
 			}
+			
 			die(json_encode($data));
-
 		}
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -509,7 +492,6 @@ class Commonquery extends CI_Controller {
 			$arr['success'] = true;
 			$arr['data'] = "Successfully Uploaded #".$tb_id."<>".$sent_to."<>".$sent_to_div;
 			die(json_encode($arr));
-
 		}
 		catch(Exception $e) {
 			$data = array("success"=> false, "data"=>$e->getMessage());
@@ -523,11 +505,9 @@ class Commonquery extends CI_Controller {
 			$this->load->model('Session');$this->Session->Validate();
 			$profile_id = $this->input->post('profile_id');
 			$type		= $this->input->post('type');
-
 			$name 	= $_FILES['form-file']['name'];       
 	        $source = $_FILES['form-file']['tmp_name'];    
 	        $size 	= $_FILES['form-file']['size'];
-
 	        $path = "profile_pic/";
 	        $valid_formats = array("jpg", "png", "gif", "bmp");
 

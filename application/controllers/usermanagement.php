@@ -14,7 +14,6 @@ class Usermanagement extends CI_Controller {
 			$this->load->model('Session');$this->Session->Validate();
 
 			$query = mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($_GET['query'])));
-
 			$limit = $_GET['limit'];
 			$start = $_GET['start'];
 
@@ -69,7 +68,6 @@ class Usermanagement extends CI_Controller {
 			}
 
 			$data['totalCount'] = $query_count[0]->count;
-			
 			die(json_encode($data));
 		} 
 		catch(Exception $e) {
@@ -119,6 +117,7 @@ class Usermanagement extends CI_Controller {
 
 					$this->load->model('Users');
 				}
+
 				if($type == "Edit") {
 					$commandText = "SELECT * FROM users a LEFT JOIN staff b ON a.user_id = b.id WHERE a.username = '".mysqli_real_escape_string($this->db->conn_id, $user_name)."' and a.id <> '$id' AND b.active = 1";
 					$result = $this->db->query($commandText);
@@ -258,8 +257,7 @@ class Usermanagement extends CI_Controller {
 				$result = $this->db->query($commandText);
 				$query_result = $result->result(); 
 				
-				if(count($query_result) > 0) 
-				{
+				if(count($query_result) > 0) {
 					$data = array("success"=> false, "data"=>"Cannot delete record with dependence.");
 					die(json_encode($data));
 				}
@@ -310,7 +308,6 @@ class Usermanagement extends CI_Controller {
 
 				if($type == "Add") $this->Modules->save(0);	
 				if($type == "Edit") $this->Modules->save($id);	
-	
 				$this->load->model('Logs'); $this->Logs->audit_logs($id, 'modules', $type, '(Module)');
 			}
 
@@ -352,7 +349,6 @@ class Usermanagement extends CI_Controller {
 
 			$data['data'] = $record;
 			$data['success'] = true;
-
 			die(json_encode($data));
 		} 
 		catch(Exception $e) {
@@ -528,7 +524,6 @@ class Usermanagement extends CI_Controller {
 
 			$data['data'] = $record;
 			$data['success'] = true;
-
 			die(json_encode($data));
 		} 
 		catch(Exception $e) {
@@ -544,7 +539,6 @@ class Usermanagement extends CI_Controller {
 
 			$query = mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($_GET['query'])));
 			$module_id = $_GET['module_id'];
-
 			$limit = $_GET['limit'];
 			$start = $_GET['start'];
 
@@ -602,7 +596,6 @@ class Usermanagement extends CI_Controller {
 			}
 
 			$data['totalCount'] = $query_count[0]->count;
-			
 			die(json_encode($data));
 		} 
 		catch(Exception $e) {
@@ -655,7 +648,6 @@ class Usermanagement extends CI_Controller {
 				if($uadd) $this->Modules_Users->uadd 		= $uadd;
 				if($uedit) $this->Modules_Users->uedit		= $uedit;
 				if($udelete) $this->Modules_Users->udelete 	= $udelete;
-
 				if($type == "Add") $this->Modules_Users->save(0);	
 				if($type == "Edit") $this->Modules_Users->save($id);	
 
@@ -928,7 +920,6 @@ class Usermanagement extends CI_Controller {
 
 			$data['data'] = $record;
 			$data['success'] = true;
-
 			die(json_encode($data));
 		} 
 		catch(Exception $e) {
@@ -943,7 +934,6 @@ class Usermanagement extends CI_Controller {
 			$this->load->model('Session');$this->Session->Validate();
 
 			$query = mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($_GET['query'])));
-
 			$limit = $_GET['limit'];
 			$start = $_GET['start'];
 

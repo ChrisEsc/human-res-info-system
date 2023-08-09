@@ -148,7 +148,6 @@ class Cat_PSB extends CI_Controller {
 
 			$remarks_query = " remarks = NULL";
 			if(isset($remarks) && $remarks != "") $remarks_query = " remarks = '$remarks'";
-
 			$this->load->model('Access'); $this->Access->rights($this->modulename('link'), 'Add', null); // replaced $type with "Add"
 
 			// should be implemented as a transaction, transaction starts here
@@ -259,7 +258,7 @@ class Cat_PSB extends CI_Controller {
 					'is_selected' 	=> $value->is_selected
 				);
 			}
-
+			
 			die(json_encode($data));
 		}
 		catch(Exception $e) {

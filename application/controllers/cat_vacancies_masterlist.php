@@ -252,7 +252,6 @@ class Cat_Vacancies_Masterlist extends CI_Controller {
 					$status 			= mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($this->input->post('status'))));
 
 					$commandText = "SELECT * FROM adminservices_records_header WHERE id <> $id AND active = 1 AND ((sequence_number LIKE '%$sequence_number%' AND YEAR(date_communication) = YEAR(CURDATE())) OR subject LIKE '%$subject%')  AND communication_type = 'Incoming'";
-					//$commandText = "SELECT * FROM adminservices_records_header WHERE id <> $id AND active = 1 AND (sequence_number LIKE '%$sequence_number%' AND YEAR(date_communication) = '%date('Y', $date_communication)%') OR subject LIKE '%$subject%')  AND communication_type = 'Incoming'";
 					$result = $this->db->query($commandText);
 					$query_result = $result->result();
 
@@ -300,8 +299,6 @@ class Cat_Vacancies_Masterlist extends CI_Controller {
 					$commandText = "UPDATE adminservices_records_header SET action_taken_id = $action_taken_id WHERE id = $record_id";
 					$result = $this->db->query($commandText);
 				}
-				// else if ($type == "Edit")
-				// 	$this->adminservices_records_header->update($id);
 
 				$this->load->model('Logs'); $this->Logs->audit_logs($id, 'adminservices_records_header', $type, $this->modulename('label'));
 			}
@@ -770,7 +767,6 @@ class Cat_Vacancies_Masterlist extends CI_Controller {
 
 				$this->benchmark->mark('code_end'); // benchmarking purposes
 				$benchmark_string .= 'Plantilla Query Time: ' . $this->benchmark->elapsed_time('code_start', 'code_end');
-
 				$arr['success'] = true;
 				$arr['data'] = "Basic details are up to date with Plantilla. " . $benchmark_string;
 			}
@@ -844,7 +840,6 @@ class Cat_Vacancies_Masterlist extends CI_Controller {
 			}
 
 			die(json_encode($arr));
-			// return;
 		}
 		catch (\PDOException $e) {
 			die(json_encode($e->getMessage()));

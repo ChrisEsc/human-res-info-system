@@ -76,7 +76,8 @@ class Audit_Logs extends CI_Controller {
 			if(count($query_result) == 0 & $transaction_type == 'Report') {
 				$data = array("success"=> false, "data"=>'No records found!');
 				die(json_encode($data));
-			}	
+			}
+
 			if(count($query_result) == 0 & $transaction_type == 'Grid') {
 				$data["totalCount"] = 0;
 				$data["data"] 		= array();
@@ -86,7 +87,6 @@ class Audit_Logs extends CI_Controller {
 			$countID = 1;
 			foreach($query_result as $key => $value) {	
 				$created_by = mb_strtoupper($value->created_by_staff);
-
 				$data['data'][] = array(
 					'id' 				=> $countID,
 					'table'				=> $value->entity,
@@ -100,7 +100,6 @@ class Audit_Logs extends CI_Controller {
 
 			$data['totalCount'] = $query_count[0]->count;
 			return $data;
-
 		} 
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -115,7 +114,6 @@ class Audit_Logs extends CI_Controller {
 			$query 		= mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($this->input->post('query'))));
 	    	$date_from 	=  $this->input->post('date_from');
 	    	$date_to 	=  $this->input->post('date_to');
-
     		$response['filename'] = $this->exportpdfList($this->generateloglist($query, $date_from, $date_to, 'Report'), $query, $date_from, $date_to);
         }
     	else {
@@ -123,7 +121,6 @@ class Audit_Logs extends CI_Controller {
 	    	$auditlog_id 		=  $this->input->post('auditlog_id');
 	    	$table 				=  $this->input->post('table');
 	    	$transaction_type 	=  $this->input->post('transaction_type');
-
     		$response['filename'] = $this->exportpdfRecord($this->generateview($id, $auditlog_id, $table, $transaction_type));
     	}
 		die(json_encode($response));
@@ -236,7 +233,6 @@ class Audit_Logs extends CI_Controller {
 
 	public function exportpdfRecord($data) {
 		try {
-			
 			$this->load->library('PHPExcel/Shared/PDF/tcpdf');
 			$pdf = new TCPDF();
 			$fDate = date("Ymd_His"); 
@@ -381,7 +377,6 @@ class Audit_Logs extends CI_Controller {
 				$data['totalCount'] = 3;
 			}
 
-			
 			$commandText = "SELECT 
 								a.*,
 								CONCAT(lname, ', ', fname, ' ',mname) AS created_by

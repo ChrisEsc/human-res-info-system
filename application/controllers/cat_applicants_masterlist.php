@@ -141,7 +141,6 @@ class Cat_Applicants_Masterlist extends CI_Controller {
 
 			$data['totalCount'] = $query_count[0]->count;
 			return $data;
-
 		}
 		catch(Exception $e) {
 			print $e->getMessage();
@@ -293,7 +292,6 @@ class Cat_Applicants_Masterlist extends CI_Controller {
 			$data["eligibility_count"] = count($data['eligibility_details']);
 			$data["experience_count"] = count($data['experience_details']);
 			$data["training_count"] = count($data['training_details']);
-
 			return $data;
 		}
 		catch(Exception $e) {
@@ -399,7 +397,6 @@ class Cat_Applicants_Masterlist extends CI_Controller {
 			$email_add 		= $this->esc_str($this->input->post('email_add'));
 			$email_add		= isset($email_add) && $email_add != "" ? $email_add : null;
 			$type 			= $this->input->post('type');
-
 			$mname_update_query = " mname = '$mname'";
 			$suffix_update_query = " suffix = '$suffix'";
 			$suffix_select_query = " suffix LIKE '%$suffix%'";
@@ -471,7 +468,6 @@ class Cat_Applicants_Masterlist extends CI_Controller {
 				$start = $_GET['start'];
 				$limitQuery = " LIMIT $start, $limit";
 			}
-
 
 			if($detail_type == "Education") {
 				$commandText = "SELECT a.*,
@@ -564,14 +560,14 @@ class Cat_Applicants_Masterlist extends CI_Controller {
 			}
 			$result = $this->db->query($commandText);
 			$query_result = $result->result();
-
 			$count_result = $this->db->query($countCommandText);
 			$query_count = $count_result->result();
 
 			if(count($query_result) == 0 & $transaction_type == 'Report') {
 				$data = array("success"=> false, "data"=>'No records found!');
 				die(json_encode($data));
-			}	
+			}
+
 			if(count($query_result) == 0 & $transaction_type == 'Grid') {
 				$data["totalCount"] = 0;
 				$data["data"] 		= array();
@@ -755,7 +751,6 @@ class Cat_Applicants_Masterlist extends CI_Controller {
 			$applicant_id 	= $this->input->post('applicantID');
 			$crud_type 		= $this->input->post('crudType');
 			$detail_type 	= $this->input->post('detailType');
-
 			$this->load->model('Access'); $this->Access->rights($this->modulename('link'), $crud_type, null);
 
 			if($crud_type == "Delete") {
@@ -978,7 +973,7 @@ class Cat_Applicants_Masterlist extends CI_Controller {
 				$record['notes'] 						= $value->notes;
 				$record['applic_type'] 					= $value->applic_type;
 			}
-
+			
 			$data['data'] = $record;
 			$data['success'] = true;
 			die(json_encode($data));
@@ -1030,6 +1025,4 @@ class Cat_Applicants_Masterlist extends CI_Controller {
 	private function esc_str($x) {
 		return mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($x)));
 	}
-
-
 }

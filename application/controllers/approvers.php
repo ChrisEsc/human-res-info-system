@@ -18,7 +18,6 @@ class Approvers extends CI_Controller {
 	public function transactionlist() { 
 		try {			
 			$query = mysqli_real_escape_string($this->db->conn_id, strip_tags(trim($_GET['query'])));
-
 			die(json_encode($this->generatetransactionlist($query, 'Grid')));
 		} 
 		catch(Exception $e) {
@@ -390,7 +389,6 @@ class Approvers extends CI_Controller {
 			$hierarchy_id	= $this->input->post('hierarchy_id');
 			$approver_id	= $this->input->post('approver_id');
 			$type			= $this->input->post('type');
-			
 			$this->load->model('Access'); $this->Access->rights($this->modulename('link'), $type, null);		
 			
 			if($code == 'STDCRA')
