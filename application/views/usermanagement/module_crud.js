@@ -2,7 +2,6 @@ var ModuleWindow, ModuleID, moduleForm;
 
 function module_crud(type) {
 	params = new Object();
-
 	params.id	= ModuleID;
 	params.type	= type;
 

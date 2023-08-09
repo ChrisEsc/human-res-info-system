@@ -129,7 +129,7 @@ function AddEditDeleteApplicantDetails(type) {
         viewConfig: {
             listeners: {
                 itemdblclick: function() {
-                    // ViewRecord();
+
                 },
                 itemcontextmenu: function(view, record, item, index, e){
                     e.stopEvent();
@@ -183,7 +183,7 @@ function AddEditDeleteApplicantDetails(type) {
                     align: 'center', 
                     width: 80, 
                     renderer:columnWrap
-                },{
+                }, {
                     text: 'Validity', 
                     dataIndex: 'date_validity',
                     align: 'center', 
@@ -248,7 +248,7 @@ function AddEditDeleteApplicantDetails(type) {
                     align: 'center', 
                     width: 100, 
                     renderer: Ext.util.Format.dateRenderer('M d, Y')
-                },{
+                }, {
                     text: 'To', 
                     dataIndex: 'to_date',
                     align: 'center', 
@@ -269,7 +269,7 @@ function AddEditDeleteApplicantDetails(type) {
         viewConfig: {
             listeners: {
                 itemdblclick: function() {
-                    // ViewRecord();
+
                 },
                 itemcontextmenu: function(view, record, item, index, e){
                     e.stopEvent();
@@ -320,7 +320,7 @@ function AddEditDeleteApplicantDetails(type) {
                     align: 'center', 
                     width: 100, 
                     renderer: dateRenderer
-                },{
+                }, {
                     text: 'To', 
                     dataIndex: 'to_date',
                     align: 'center', 
@@ -338,7 +338,7 @@ function AddEditDeleteApplicantDetails(type) {
         viewConfig: {
             listeners: {
                 itemdblclick: function() {
-                    // ViewRecord();
+
                 },
                 itemcontextmenu: function(view, record, item, index, e){
                     e.stopEvent();
@@ -462,25 +462,25 @@ function AddEditDeleteApplicantDetails(type) {
         		name 		: 'fname',
         		emptyText 	: 'First Name',
         		flex 		: 1
-        	},{
+        	}, {
 	            xtype 		: 'splitter'
-	        },{
+	        }, {
                 id 			: 'mname',
 	        	name 		: 'mname',
         		emptyText 	: 'Middle Name',
         		flex 		: 1,
                 afterLabelTextTpl: null,
                 allowBlank 	: true
-        	},{
+        	}, {
 	            xtype 		: 'splitter'
-	        },{
+	        }, {
                 id 			: 'lname',
 	        	name 		: 'lname',
         		emptyText 	: 'Last Name',
         		flex 		: 1
-        	},{
+        	}, {
 	            xtype 		: 'splitter'
-	        },{
+	        }, {
                 id 			: 'suffix',
 	        	name 		: 'suffix',
         		emptyText 	: 'Suffix',
@@ -498,7 +498,7 @@ function AddEditDeleteApplicantDetails(type) {
 	        	emptyText 	: '09xxxxxxxxx',
 	            fieldLabel  : 'Phone No.',
 	            flex 		: 1
-	        },{
+	        }, {
 	        	xtype 		: 'textfield',
                 id          : 'email_add',
 	        	name        : 'email_add',
@@ -522,15 +522,15 @@ function AddEditDeleteApplicantDetails(type) {
     		title: 'Educational Background',
             name: 'educ_background',
             items: [educationGrid]
-    	},{
+    	}, {
     		title: 'Civil Service Eligibility',
             name: 'eligibility',
             items: [eligibilityGrid]
-    	},{
+    	}, {
     		title: 'Work Experience',
             name: 'experience',
             items: [experienceGrid]
-    	},{
+    	}, {
             title: 'L&D Interventions/Trainings',
             name: 'training',
             items: [trainingGrid]
@@ -581,7 +581,7 @@ function AddEditDeleteApplicantDetails(type) {
                     }
                 });
             }
-        },{
+        }, {
     	    text	: 'Close',
     	    icon	: './image/close.png',
     	    handler: function(){

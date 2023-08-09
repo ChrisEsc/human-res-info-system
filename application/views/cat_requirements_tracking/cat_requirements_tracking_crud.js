@@ -77,7 +77,7 @@ function AddEditDeleteApplicant(type) {
 				name		: 'sequence_number',
 				fieldLabel	: 'Sequence #',
 				emptyText	: '399'
-			},{
+			}, {
                 xtype   : 'fieldcontainer',
                 flex    : 1,
                 labelStyle: 'font-weight:bold;padding:0',
@@ -132,7 +132,7 @@ function AddEditDeleteApplicant(type) {
                             }
                         }
                     }
-                },{
+                }, {
                     xtype: 'button',
                     hidden: crudMaintenance,
                     margins     : '0 0 0 5',
@@ -140,14 +140,14 @@ function AddEditDeleteApplicant(type) {
                     tooltip: 'Add/Edit/Delete Communication Type',
                     handler: function(){ viewMaintenance('record_types', null); }
                 }]
-            },{
+            }, {
             	xtype	: 'textfield',	
 				id		: 'communication_number',
 				name	: 'communication_number',
 				hidden	: true,
 				disabled: true,
 				fieldLabel: '#',
-           	},{
+           	}, {
 				xtype		:'combo',
 				id			: 'endorsement_number',
 				name		: 'endorsement_number',
@@ -164,18 +164,17 @@ function AddEditDeleteApplicant(type) {
 				listeners: {
 	                select: function(combo, record, index) {
 	                	communication_number = record[0].data.number;
-	                	console.log(communication_number);
 	                }
 	            },
 				valueField 	: 'number',
 				displayField: 'number'
-			},{
+			}, {
 				xtype	: 'textarea',	
 				id		: 'subject',
 				name	: 'subject',
 				fieldLabel: 'Subject',
 				emptyText: 'MEMO NO. 0242-18 POSTING OF WEEKLY QUOTATION: IT IS BY ACTS AND NOT BY IDEAS THAT PEOPLE LIVE---ANATOLE FRANCE'
-			},{
+			}, {
                 xtype       : 'combo',
                 flex        : 1,
                 labelAlign  : 'right',
@@ -209,7 +208,7 @@ function AddEditDeleteApplicant(type) {
                         Ext.getCmp("from_name").setRawValue(record[0].data.description);
                     }
                 }
-            },{
+            }, {
                 xtype       : 'combo',
                 flex        : 1,
                 labelAlign  : 'right',
@@ -243,7 +242,7 @@ function AddEditDeleteApplicant(type) {
                         Ext.getCmp("to_name").setRawValue(record[0].data.description);
                     }
                 }
-            },{
+            }, {
             	xtype		: 'datefield',
             	id 			: 'date_communication',
             	name 		: 'date_communication',

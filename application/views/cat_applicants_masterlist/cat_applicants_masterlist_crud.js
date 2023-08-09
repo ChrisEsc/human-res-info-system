@@ -15,11 +15,6 @@ function applicantCRUD(type) {
 	}
 	
 	deleteFunction('cat_applicants_masterlist/crud', params, 'list_grid', null);
-	// if(type == "Delete")
-	// 	deleteFunction('cat_applicants_masterlist/crud', params, 'list_grid', null);
-	// else {
-	// 	addeditFunction('cat_applicants_masterlist/crud', params, 'list_grid', null, applicantForm, applicantWindow);
-	// }0
 	Ext.getCmp("pageToolbar").moveFirst();
 }
 
@@ -32,7 +27,6 @@ function AddEditDeleteApplicant(type) {
 			warningFunction("Warning!","Please select record.");
 			return;
 		}
-
 		applicantID = sm.selected.items[0].data.id;
 	}
 
@@ -51,8 +45,6 @@ function AddEditDeleteApplicant(type) {
 	}
 	else {
 		if(type == "Add") applicantID = 0;
-
-		// AddEditDeleteApplicantDetails(type);
 		
 		Ext.Ajax.request({
 		    url     :"cat_applicants_masterlist/initialcrud",

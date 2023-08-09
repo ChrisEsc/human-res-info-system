@@ -72,7 +72,7 @@ Ext.onReady(function(){
         viewConfig: {
             listeners: {
                 itemdblclick: function() {
-                    // ViewRecord();
+
                 },
                 itemcontextmenu: function(view, record, item, index, e){
                     e.stopEvent();
@@ -148,28 +148,7 @@ Ext.onReady(function(){
         { xtype: 'button', id: 'editRecord', text: 'EDIT', icon: './image/edit.png', tooltip: 'Edit Applicant', handler: function(){ AddEditDeleteApplicant('Edit');}},
         { xtype: 'button', id: 'deleteRecord', text: 'DELETE', icon: './image/delete.png', tooltip: 'Delete Applicant', handler: function(){ AddEditDeleteApplicant('Delete');}},
         // { xtype: 'button', id: 'uploadDocument', text: 'UPLOAD Scanned Document', icon: './image/upload.png', tooltip: 'Upload Scanned Document', handler: function(){ UploadDocument('Upload');}},
-        { xtype: 'button', id: 'viewRecord', text: 'VIEW RECORD', icon: './image/view.png', tooltip: 'View Record', handler: function(){ ViewRecord();}},
-        '-',
-        // {
-        //     text: 'Download',
-        //     tooltip: 'Extract Data to PDF or EXCEL File Format',
-        //     icon: './image/download.png',
-        //     menu: {
-        //         items: [{
-        //             text    : 'Export PDF Format',
-        //             icon: './image/pdf.png',
-        //             handler: function() {
-        //                 ExportDocs('PDF');
-        //             }
-        //         }, {
-        //             text    : 'Export Excel Format',
-        //             icon: './image/excel.png',
-        //             handler: function() {
-        //                 ExportDocs('Excel');
-        //             }
-        //         }]
-        //     }
-        // }
+        { xtype: 'button', id: 'viewRecord', text: 'VIEW RECORD', icon: './image/view.png', tooltip: 'View Record', handler: function(){ ViewRecord();}}
         ]
     });
 });

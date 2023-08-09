@@ -2,7 +2,6 @@ var userWindow, userID, userType = 'Staff', form;
 
 function user_crud(type) {
 	params = new Object();
-
 	params.id	= userID;
 	params.type	= type;
 
@@ -116,7 +115,7 @@ function AddEditDeleteUser(type) {
             }]
 		});
 
-			userWindow = Ext.create('Ext.window.Window', {
+		userWindow = Ext.create('Ext.window.Window', {
 			title		: type + ' User',
 			closable	: true,
 			modal		: true,

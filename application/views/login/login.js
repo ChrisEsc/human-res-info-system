@@ -7,7 +7,6 @@ Ext.onReady(function(){
 			method: "POST",	
 		    success: function(f,action) {				
 				Ext.MessageBox.hide();
-
 				if(action.result.success == true) {	
 					loadFunction("Access Granted. Please Wait...", "WELCOME! "+action.result.name);
 					//window.location = "<?php echo base_url().'index.php/'; ?>" + action.result.data;
@@ -56,7 +55,7 @@ Ext.onReady(function(){
                     }
                 }
             }			
-		},{							
+		}, {							
 			xtype	: 'textfield',
 			name	: 'password',
 			id		: 'password',
@@ -70,7 +69,7 @@ Ext.onReady(function(){
                     }
                 }
             }
-		},{
+		}, {
 			xtype	:'combo',
 			emptyText: 'Select Type...',
 			editable: false,
@@ -94,7 +93,7 @@ Ext.onReady(function(){
 			valueField: 'Type',
 			displayField: 'Type',
 			hidden: true
-		},{
+		}, {
 			xtype	: 'label',
 			html	: '<a href="#" onclick="emailFunction()">Forgot password?</a>',
 			margin	: '0 0 0 105'

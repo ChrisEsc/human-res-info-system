@@ -115,7 +115,7 @@ function AddEditDeleteModUser(type) {
 			}]
 		});
 
-			moduserWindow = Ext.create('Ext.window.Window', {
+		moduserWindow = Ext.create('Ext.window.Window', {
 			title		: type + ' User',
 			closable	: true,
 			modal		: true,

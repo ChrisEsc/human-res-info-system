@@ -138,31 +138,8 @@ Ext.onReady(function(){
         { xtype: 'button', id: 'addRecord', text: 'ADD', icon: './image/add.png', tooltip: 'Add Applicant', handler: function(){ AddEditDeleteApplicant("Add");}},
         { xtype: 'button', id: 'editRecord', text: 'EDIT', icon: './image/edit.png', tooltip: 'Edit Applicant', handler: function(){ AddEditDeleteApplicant("Edit");}},
         { xtype: 'button', id: 'deleteRecord', text: 'DELETE', icon: './image/delete.png', tooltip: 'Delete Applicant', handler: function(){ AddEditDeleteApplicant("Delete");}},
-        // { xtype: 'button', id: 'uploadDocument', text: 'UPLOAD Scanned Document', icon: './image/upload.png', tooltip: 'Upload Scanned Document', handler: function(){ UploadDocument('Upload');}},
         { xtype: 'button', id: 'updateApplication', text: 'UPDATE APPLICATION', icon: './image/details.png', tooltip: 'Update Application', handler: function(){ UpdateApplication();}},
-        { xtype: 'button', id: 'viewRecord', text: 'APPLICANT DETAILS', icon: './image/view.png', tooltip: 'APPLICANT DETAILS', handler: function(){ ViewRecord();}},
-        // { xtype: 'button', id: 'importExcel', text: 'IMPORT EXCEL', icon: './image/excel.png', tooltip: 'IMPORT EXCEL', handler: function(){ ImportExcel();}},
-        // '-',
-        // {
-        //     text: 'Download',
-        //     tooltip: 'Extract Data to PDF or EXCEL File Format',
-        //     icon: './image/download.png',
-        //     menu: {
-        //         items: [{
-        //             text    : 'Export PDF Format',
-        //             icon: './image/pdf.png',
-        //             handler: function() {
-        //                 ExportDocs('PDF');
-        //             }
-        //         }, {
-        //             text    : 'Export Excel Format',
-        //             icon: './image/excel.png',
-        //             handler: function() {
-        //                 ExportDocs('Excel');
-        //             }
-        //         }]
-        //     }
-        // }
+        { xtype: 'button', id: 'viewRecord', text: 'APPLICANT DETAILS', icon: './image/view.png', tooltip: 'APPLICANT DETAILS', handler: function(){ ViewRecord();}}
         ]
     });
 });

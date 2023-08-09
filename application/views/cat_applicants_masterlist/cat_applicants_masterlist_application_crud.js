@@ -1,6 +1,5 @@
 var applicationWindow, applicationForm;
 var id, applicant_id, applic_type_desc;
-// var selected_lineup_applicant_id;
 
 function applicationCRUD() {
 	params = new Object();
@@ -10,7 +9,6 @@ function applicationCRUD() {
 	params.position_applied  			= Ext.getCmp("position_applied").getValue();
 	params.notes  						= Ext.getCmp("notes").getValue();
 	params.applic_type_desc  			= applic_type_desc;
-
 	addeditFunction('cat_applicants_masterlist/applicationcrud', params, 'list_grid', null, applicationForm, applicationWindow);
 }
 
@@ -24,7 +22,6 @@ function UpdateApplication() {
 	}
 
 	applicant_id = sm.selected.items[0].data.id;
-
 	applicationForm = Ext.create('Ext.form.Panel', {
 		border 		: false,
 		bodyStyle 	: 'padding:15px;',
@@ -43,21 +40,21 @@ function UpdateApplication() {
 			fieldLabel	: 'Date Received',
 			editable 	: false,
 			emptyText 	: 'mm/dd/yyyy'
-        },{
+        }, {
         	xtype		: 'textarea',
 			id			: 'position_applied',
 			name		: 'position_applied',
 			fieldLabel	: 'Position/s Applied',
 			afterLabelTextTpl: null,
 		    allowBlank 	: true
-        },{
+        }, {
         	xtype		: 'textarea',
 			id			: 'notes',
 			name		: 'notes',
 			fieldLabel	: 'Notes',
 			afterLabelTextTpl: null,
 		    allowBlank 	: true
-        },{
+        }, {
         	xtype		: 'combo',
 			id			: 'applic_type',
 			name		: 'applic_type',

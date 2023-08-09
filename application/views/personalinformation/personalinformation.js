@@ -1,5 +1,4 @@
 setTimeout("UpdateSessionData();", 0);
-
 var employee_id;
 
 Ext.onReady(function(){

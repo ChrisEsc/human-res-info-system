@@ -104,37 +104,14 @@ function ViewRecord() {
                 '</tr>';
 
             htmlTrackingData += '</table>';
-
             var htmlLoad = new Ext.XTemplate(htmlData);
             var htmlApprovers = new Ext.XTemplate(htmlTrackingData);
-              
             var centerPanel = Ext.create('Ext.panel.Panel', {
                 region  : 'center',
                 autoScroll : true,
                 buttonAlign : 'center',
                 html    : htmlLoad.applyTemplate(null),
-                buttons: [
-                // {
-                //     text: 'Download',
-                //     tooltip: 'Extract Data to PDF or EXCEL File Format',
-                //     icon: '../image/download.png',
-                //     menu: {
-                //         items: [{
-                //             text    : 'Export PDF Format',
-                //             icon: '../image/pdf.png',
-                //             handler: function() {
-                //                 ExportForm('PDF');
-                //             }
-                //         },{
-                //             text    : 'Export Excel Format',
-                //             icon: '../image/excel.png',
-                //             handler: function() {
-                //                 ExportForm('Excel');
-                //             }
-                //         }]
-                //     }
-                // },
-                {
+                buttons: [{
                     text    : 'Close',
                     icon    : '../image/close.png',
                     handler: function() {

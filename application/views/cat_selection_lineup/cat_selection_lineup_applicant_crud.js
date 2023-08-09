@@ -2,11 +2,11 @@ var existingApplicantID, applicantID, applicantWindow;
 
 function applicantCRUD(type) {
 	params = new Object();
-	params.id 			= selectionLineupID;
+	params.id = selectionLineupID;
 	if(type == "Add") 	{
 		params.applicant_id = applicantID;
 	}
-	params.type 		= type;
+	params.type = type;
 
 	deleteFunction('cat_selection_lineup/applicant_crud', params, 'list_grid', null);
 	if(type == "Add") 	applicantWindow.close();
@@ -17,7 +17,6 @@ function AddEditDeleteApplicant(type) {
 	var sm = Ext.getCmp("list_grid").getSelectionModel();
 	
 	selectionLineupID = sm.selected.items[0].data.lineup_applicant_id;
-	// existingApplicantID = sm.selected.items[0].data.applicant_id;
 	
 	if(type == "Delete") {
 		if(sm.selected.items[0].data.applicant_id == null) {
@@ -165,7 +164,6 @@ function AddEditDeleteApplicant(type) {
 			    }
 			}]
 		});
-
 		applicantWindow.show();
 	}
 }

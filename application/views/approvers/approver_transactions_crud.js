@@ -61,7 +61,7 @@ function AddEditDeleteTransaction(type) {
             }]
 		});
 
-			transactionWindow = Ext.create('Ext.window.Window', {
+		transactionWindow = Ext.create('Ext.window.Window', {
 			title		: type + ' Transaction',
 			closable	: true,
 			modal		: true,

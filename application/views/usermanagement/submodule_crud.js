@@ -94,7 +94,7 @@ function AddEditDeleteSubModule(type) {
 				}]
 			});
 
-			SubModuleWindow = Ext.create('Ext.window.Window', {
+		SubModuleWindow = Ext.create('Ext.window.Window', {
 			title		: type + ' Sub Module',
 			closable	: true,
 			modal		: true,

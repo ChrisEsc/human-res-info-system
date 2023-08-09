@@ -7,7 +7,6 @@ function psbCRUD() {
 	params.lineup_header_id = lineup_header_id;
 	params.lineup_vacancy_id = lineup_vacancy_id;
 	params.selected_lineup_applicant_id = selected_lineup_applicant_id;
-
 	addeditFunction('cat_psb/crud', params, 'list_grid', null, psbForm, psbWindow);
 }
 
@@ -27,7 +26,6 @@ function UpdatePSB() {
 
 	lineup_header_id = sm.selected.items[0].data.lineup_header_id;
 	lineup_vacancy_id = sm.selected.items[0].data.lineup_vacancy_id;
-
 	psbForm = Ext.create('Ext.form.Panel', {
 		border 		: false,
 		bodyStyle 	: 'padding:15px;',
@@ -74,14 +72,14 @@ function UpdatePSB() {
                     selected_lineup_applicant_id = record[0].data.id;
                 }
             }
-        },{
+        }, {
         	xtype		: 'datefield',	
 			id			: 'date_psb',
 			name		: 'date_psb',
 			fieldLabel	: 'PSB Date',
 			editable 	: false,
 			emptyText 	: 'mm/dd/yyyy'
-        },{
+        }, {
         	xtype		: 'textarea',
 			id			: 'remarks',
 			name		: 'remarks',
